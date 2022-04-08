@@ -73,7 +73,7 @@ function simulation() {
 
 async function main() {
   simulation();
-  if (shouldCommit(new Date()) || true) {
+  if (shouldCommit(new Date())) {
     console.log("Today is commit day!");
     await fs.writeFile("./log.txt", new Date().toISOString());
     await exec("git add .");
