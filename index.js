@@ -11,7 +11,6 @@ const DATA = [
   " X   X X   X X   X   X       ", //
   "                             ", //
 ];
-
 const WEEK_OFFSET = 14; // Start at 14th week of the year
 const ONE_DAY = 1000 * 60 * 60 * 24;
 
@@ -74,12 +73,15 @@ function simulation() {
 
 async function main() {
   simulation();
-
   if (shouldCommit(new Date()) || true) {
     console.log("Today is commit day!");
-    fs.writeFile("./log.txt", new Date().toISOString());
+    await fs.writeFile("./log.txt", new Date().toISOString());
     await exec("git add .");
     await exec('git commit -m "Auto commit"');
+    await exec("git push origin master");
+    console.log("Commit finished!");
+  } else {
+    console.log("  Today is not commit day!\n");
   }
 }
 
