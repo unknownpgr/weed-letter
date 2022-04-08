@@ -1,4 +1,4 @@
-name: GitHub contribution pixel art
+name: GitHub Contribution Pixel Art
 on:
   schedule:
     - cron: 1 0 * * *
@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Configure git
+      - name: Configure Git
         run: |
           git config --global user.name 'unknownpgr'
           git config --global user.email 'unknownpgr@gmail.com'
