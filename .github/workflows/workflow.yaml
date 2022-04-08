@@ -1,0 +1,16 @@
+name: GitHub contribution pixel art
+on:
+  schedule:
+    - cron: 1 0 * * *
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Configure git
+        run: |
+          git config --global user.name 'unknownpgr'
+          git config --global user.email 'unknownpgr@gmail.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+      - name: Run script
+        run: node index.js
