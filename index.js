@@ -9,7 +9,7 @@ const DATA = [
   " XXXXX XXXX  X X X   X       ", //
   " X   X X   X X   X   X       ", //
   " X   X X   X X   X   X       ", //
-  "                             ", //
+  "          x                  ", //
 ];
 const WEEK_OFFSET = 14; // Start at 14th week of the year
 const ONE_DAY = 1000 * 60 * 60 * 24;
@@ -57,10 +57,10 @@ function simulation() {
         day.getUTCMonth() === today.getUTCMonth() &&
         day.getUTCDate() === today.getUTCDate()
       ) {
-        output += "◻︎";
+        output += "X";
       } else {
         if (v) {
-          output += "▤";
+          output += "O";
         } else {
           output += " ";
         }
