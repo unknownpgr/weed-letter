@@ -77,8 +77,11 @@ async function main() {
     console.log("Today is commit day!");
     await fs.writeFile("./log.txt", new Date().toISOString());
     await exec("git add .");
+	  console.log("Git add");
     await exec('git commit -m "Auto commit"');
+	  console.log("Git commit");
     await exec("git push origin master");
+	  console.log("Git push");
     console.log("Commit finished!");
   } else {
     console.log("  Today is not commit day!\n");
